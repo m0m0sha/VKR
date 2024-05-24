@@ -172,3 +172,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 AUTH_USER_MODEL = 'user.User'
 REST_USE_JWT = True  # Используем JWT для аутентификации
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['https://m0m0sha-vkr-e23d.twc1.net']
