@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-h#2p@uqjdvk)udyt5xm*u+($0figm!-w0#e$akp#^krjqap9fs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['m0m0sha-vkr-e23d.twc1.net', 'localhost', '127.0.0.1']
 
 SITE_ID = 1
 
@@ -101,8 +101,8 @@ DATABASES = {
         'USER': 'postgres',  # Имя пользователя
         'PASSWORD': 'ghbdtnkjk',  # Пароль
         'PORT': '5432',  # Порт 5432
-    }
-    #   'default': dj_database_url.config(default='postgres://localhost/vkr')
+    },
+    'default': dj_database_url.config(default='postgres://user:password@localhost/dbname')
 }
 
 # Password validation
