@@ -3,12 +3,13 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenRefreshView
 
-from user.views import UserViewSet, MyTokenObtainPairView, CourseDayViewSet, SurveyViewSet
+from user.views import UserViewSet, MyTokenObtainPairView, CourseDayViewSet, SurveyViewSet, CourseViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'course-days', CourseDayViewSet)
 router.register(r'surveys', SurveyViewSet)
+router.register(r'courses', CourseViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

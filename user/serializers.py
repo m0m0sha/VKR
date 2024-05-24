@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Survey, CourseDay
+from .models import User, Survey, CourseDay, Course
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.password_validation import validate_password
 from django.core.validators import validate_email
@@ -90,4 +90,12 @@ class CourseDaySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CourseDay
+        fields = '__all__'
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    course = CourseDaySerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Course
         fields = '__all__'
