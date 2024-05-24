@@ -47,3 +47,10 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.first_name
+
+
+class Course(models.Model):
+    paragraphs = models.JSONField()  # Массив строк для абзацев
+
+    def __init__(self, *args, **kwargs):
+        super(Course, self).__init__(*args, **kwargs)
