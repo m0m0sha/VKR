@@ -38,10 +38,11 @@ class UserSerializer(serializers.ModelSerializer):
         """
         Method to create a new user instance.
         """
-        password = validated_data.pop('password')
+        groups_data = validated_data.pop('groups', [])
         user = User(**validated_data)
-        user.set_password(password)
+        user.set_password(validated_data['password'])
         user.save()
+        user.groups.set(groups_data)  # Используйте метод set() для присвоения групп
         return user
 
     def update(self, instance, validated_data):
@@ -49,10 +50,13 @@ class UserSerializer(serializers.ModelSerializer):
         Method to update an existing user instance.
         """
         password = validated_data.pop('password', None)
+        groups_data = validated_data.pop('groups', None)
         for field, value in validated_data.items():
             setattr(instance, field, value)
         if password:
             instance.set_password(password)
+        if groups_data is not None:
+            instance.groups.set(groups_data)  # Используйте метод set() для присвоения групп
         instance.save()
         return instance
 
