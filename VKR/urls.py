@@ -3,7 +3,8 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenRefreshView
 
-from user.views import UserViewSet, MyTokenObtainPairView, CourseDayViewSet, SurveyViewSet, CourseViewSet
+from user.views import UserViewSet, MyTokenObtainPairView, CourseDayViewSet, SurveyViewSet, CourseViewSet, \
+    SurveyComparisonView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -21,4 +22,6 @@ urlpatterns = [
     path('api/v1/auth/', include('djoser.urls')),
     path('api/v1/auth/token/', include('djoser.urls.authtoken')),
     path('api/v1/auth/password/reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('api/v1/survey-comparison/<int:user_id>/', SurveyComparisonView.as_view(), name='survey-comparison'),
+
 ]
