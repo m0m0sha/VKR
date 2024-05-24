@@ -93,22 +93,15 @@ WSGI_APPLICATION = 'VKR.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'vkr',  # Имя базы данных
-#        'USER': 'postgres',  # Имя пользователя
-#        'PASSWORD': 'ghbdtnkjk',  # Пароль
-#        'PORT': '5432',  # Порт 5432
-#    },
-#    'default': dj_database_url.config(default='postgres://vova:ghbdtnkjk@147.45.247.107:5432/vkr')
-# }
-
-
 DATABASES = {
-    'default':
-        dj_database_url.config(default='postgres://vova:ghbdtnkjk@147.45.247.107:5432/vkr')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vkr',  # Имя базы данных
+        'USER': 'vova',  # Имя пользователя
+        'PASSWORD': 'ghbdtnkjk',  # Пароль
+        'HOST': '147.45.247.107',  # Адрес хоста
+        'PORT': '5432',  # Порт 5432
+    }
 }
 
 # Password validation
